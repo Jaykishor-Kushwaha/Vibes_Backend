@@ -24,22 +24,20 @@ const MONGO_URI = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB!"))
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-
+const PORT = process.env.PORT || 5001;
 
 app.use(
   cors({
-    origin:  true,
+    origin: process.env.CLIENT_BASE_URI || "http://localhost:5173",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
-      "Authorization",
+      "Authorization", 
       "Cache-Control",
       "Expires",
       "Pragma",
