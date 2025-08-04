@@ -35,7 +35,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", 
-      "https://vibes-frontend-ivory.vercel.app"
+      "https://vibes-frontend-agwlyvkjq-jaykishor-kushwahas-projects.vercel.app"
     ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
