@@ -33,7 +33,10 @@ const PORT = process.env.PORT || 5001;
 
 app.use(
   cors({
-    origin: process.env.CLIENT_BASE_URI || "http://localhost:5173",
+    origin: [
+      "http://localhost:5173", 
+      "https://vibes-frontend-ivory.vercel.app"
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
@@ -46,7 +49,6 @@ app.use(
   })
 );
 
-// Middleware
 app.use(cookieParser());
 app.use(express.json());
 
